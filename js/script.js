@@ -5,26 +5,42 @@ console.log(' JS OK');
 // - Per i numeri che sono sia multipli di 3 che di 5 stampi “FizzBuzz” al posto del numero.
 
 
+// Prendo l'elemento dalla pagina
+const board = document.getElementById('board');
+
+// Creo una lista da inserire nella pagina
+const list = document.createElement('ul');
+
 // Creo il ciclo del conteggio numeri da 1 a 100
 for (let number = 1; number <= 100; number++) {
-    
-    //Calcolo i multipli di 3 e 5 e stampo FizzBuzz al posto del numero
+
+    //Creo gli elementi della lista da inserire nella pagina
+    const listElement = document.createElement('li');
+    list.appendChild(listElement);
+
+    //Calcolo i multipli di 3 e 5 e stampo FizzBuzz al posto del numero, poi li aggancio all'elemento della lista
      if (number % 3 == 0 && number % 5 == 0) {
-        console.log( 'FizzBuzz');
+        console.log('FizzBuzz');
+        listElement.append('FizzBuzz');
     }
 
-    //Calcolo il multiplo di 3 e stampo Fizz al posto del numero
+    //Calcolo il multiplo di 3 e stampo Fizz al posto del numero, poi lo aggancio all'elemento della lista
      else if (number % 3 == 0){
-        console.log('Fizz');
+        console.log( 'Fizz');
+        listElement.append('Fizz');
     }
 
-    //Calcolo il multiplo di 5 e stampo Buzz al posto del numero
+    //Calcolo il multiplo di 5 e stampo Buzz al posto del numero, poi lo aggancio all'elemento della lista
      else if (number % 5 == 0 ){
-        console.log('Buzz');
+        console.log( 'Buzz');
+        listElement.append('Buzz');
     }
 
-    //Stampo tutti i restanti numeri
+    //Stampo tutti i restanti numeri e li aggancio all'elemento della lista
         else {
             console.log(number);
+            listElement.append(number);
         }
 }
+
+board.appendChild(list);
